@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACCESS WARNING</title>
+
+<style>
+    body {
+        margin: 0;
+        background: black;
+        color: #00ff00;
+        font-family: "Courier New", monospace;
+        overflow: hidden;
+    }
+
+    .scanlines {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+            0deg,
+            rgba(0,0,0,0.2),
+            rgba(0,0,0,0.2) 2px,
+            transparent 2px,
+            transparent 4px
+        );
+        pointer-events: none;
+    }
+
+    .container {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    h1 {
+        font-size: 3em;
+        animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+        0% { text-shadow: 2px 2px red; }
+        20% { text-shadow: -2px -2px blue; }
+        40% { text-shadow: 2px -2px lime; }
+        60% { text-shadow: -2px 2px red; }
+        80% { text-shadow: 2px 2px blue; }
+        100% { text-shadow: none; }
+    }
+
+    #typing {
+        margin-top: 20px;
+        font-size: 1.2em;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid #00ff00;
+        width: 0;
+        animation: typing 4s steps(40, end) forwards, blink 0.8s infinite;
+    }
+
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+
+    @keyframes blink {
+        50% { border-color: transparent }
+    }
+
+    .btn {
+        margin-top: 30px;
+        padding: 10px 25px;
+        background: transparent;
+        border: 1px solid #00ff00;
+        color: #00ff00;
+        cursor: pointer;
+        font-family: inherit;
+    }
+
+    .btn:hover {
+        background: #00ff00;
+        color: black;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="scanlines"></div>
+
+<div class="container">
+    <h1>⚠ SYSTEM BREACH ⚠</h1>
+    <div id="typing">Unauthorized access detected... Monitoring activity...</div>
+    <br>
+    <button class="btn" onclick="proceed()">CONTINUE</button>
+</div>
+
+<script>
+function proceed() {
+    alert("Access Granted...");
+    // Example redirect:
+    // window.location.href = "https://example.com";
+}
+</script>
+
+</body>
+</html>
